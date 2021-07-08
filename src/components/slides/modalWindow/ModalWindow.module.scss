@@ -1,0 +1,98 @@
+
+.modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.48);
+  width: 1024px;
+  height: 768px;
+  z-index: 3;
+  opacity: 1;
+  //animation: showModal .5s;
+  .modal {
+    position: relative;
+    width: 800px;
+    height: 550px;
+    background-color: #fff;
+    left: 55%;
+    top: 55%;
+    transform: translate(-50%,-50%);
+    border-radius: 40px;
+    .modal__inner {
+      padding: 200px 50px 50px 75px;
+      width: 600px;
+      margin: 0 auto;
+      .modal__btn {
+        position: absolute;
+        background-color: rgba(255,255,255,0);
+        background-image: url("../../../img/close.png");
+        background-repeat: no-repeat;
+        background-size: 40px;
+        width: 40px;
+        height: 40px;
+        top: 30px;
+        right: 30px;
+
+      }
+      .modal__list {
+        padding: 30px 0 0 0;
+        .modal__item {
+          margin: 15px 0;
+          .modal__item_count {
+            display: block;
+            font-size: 18px;
+            font-weight: 800;
+            color: #8cc9e8;
+          }
+          .modal__item_text {
+            font-size: 22px;
+          }
+        }
+      }
+      .modal__pagination {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 20px;
+        margin-left: -10px;
+        .modal__pagination_back {
+          background-image: url("../../../img/slide_3/arrow.png");
+          background-repeat: no-repeat;
+          background-size: 15px;
+          background-position: center;
+          width: 40px;
+          height: 40px;
+        }
+        .modal__pagination_item {
+          width: 15px;
+          height: 15px;
+          border: 2px solid #000000;
+          border-radius: 50%;
+          margin: 0 5px;
+          &.active {
+            border: none;
+            background: #ec609c;
+          }
+        }
+        .modal__pagination_next {
+
+          background-image: url("../../../img/slide_3/arrow.png");
+          background-repeat: no-repeat;
+          background-size: 15px;
+          background-position: center;
+          width: 40px;
+          height: 40px;
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+@keyframes showModal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
