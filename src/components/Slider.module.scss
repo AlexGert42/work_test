@@ -1,18 +1,18 @@
 
 .slider {
-  width: 1024px;
-  height: 768px;
   margin: 0 auto;
+  height: 100%;
 
   .slider__inner {
     overflow: hidden;
     position: relative;
 
     .slider__home {
-      position: fixed;
+      position: absolute;
       top: 90px;
       left: 75px;
       margin-top: -60px;
+      z-index: 100;
 
       &.home {
         display: flex;
@@ -22,6 +22,7 @@
 
         .home__btn {
           background-color: rgba(255, 255, 255, 0);
+          cursor: pointer;
 
           .home__img {
             width: 45px;
@@ -43,11 +44,11 @@
     }
 
     .slider__logo {
-      position: fixed;
+      position: absolute;
       bottom: 20px;
       left: 75px;
       width: 60px;
-      z-index: 10;
+      z-index: 100;
     }
   }
 }

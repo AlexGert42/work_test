@@ -45,6 +45,8 @@ export const Slide_3 = () => {
                             'Еще одно важное преимущество препарата',
                             'Еще одно важное преимущество препарата',
                         ]}
+                        width={'1024px'}
+                        height={'768px'}
                     />
                     :
                     <div className={style.slide__content}>

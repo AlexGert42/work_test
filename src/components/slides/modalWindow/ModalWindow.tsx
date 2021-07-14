@@ -5,9 +5,11 @@ import {useState} from "react";
 type modalPropsType = {
     collModalWindow: (value: boolean) => void
     items: string[]
+    width: string
+    height: string
 }
 
-export const ModalWindow = ({collModalWindow, items}: modalPropsType) => {
+export const ModalWindow = ({collModalWindow, items, width, height}: modalPropsType) => {
     const closeModal = () => collModalWindow(false)
     const pages = Math.ceil(items.length / 3)
     const totalPage = new Array(pages).fill(0)
@@ -25,7 +27,7 @@ export const ModalWindow = ({collModalWindow, items}: modalPropsType) => {
     }
 
     return (
-        <div className={style.modal__overlay}>
+        <div className={style.modal__overlay} style={{width, height}}>
             <div className={style.modal}>
                 <div className={style.modal__inner}>
                     <button className={style.modal__btn} onClick={closeModal}/>
@@ -48,7 +50,6 @@ export const ModalWindow = ({collModalWindow, items}: modalPropsType) => {
                                 className={`${style.modal__pagination_item} ${countPage === i && style.active}`}
                                 key={i}
                                 onClick={() => chengePage(i)}
-
                             />
                         })}
                         <div className={style.modal__pagination_next} onClick={paginationNext}/>

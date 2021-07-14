@@ -1,20 +1,25 @@
+import {useEffect, useState} from "react";
 import style from './Slider.module.scss'
 import homeBtn from '../img/home_icon.png'
 import backgroundSlider from '../img/bg.jpg'
 import logo from '../img/slide_1/onpoint.png'
 
-import {useEffect, useState} from "react";
 import {Slide_1} from "./slides/slide_1/Slide_1";
 import {Slide_2} from './slides/slide_2/Slide_2';
 import {Slide_3} from './slides/slide_3/Slide_3';
 
 
-export const Slider = () => {
+type SliderPropsType = {
+    width: string,
+    height: string
+}
+
+export const Slider = ({width, height}: SliderPropsType) => {
     const [home, setHome] = useState(false)
     const getHome = (value: boolean) => setHome(value)
 
     return (
-        <div className={style.slider}>
+        <div className={style.slider} style={{width}}>
             <div className={style.slider__inner}>
                 <nav className={`${style.slider__home} ${style.home}`}>
                     <button className={style.home__btn} onClick={() => getHome(true)}>
@@ -26,6 +31,7 @@ export const Slider = () => {
                 <ContentSlider
                     home={home}
                     setHome={setHome}
+                    height={height}
                 />
                 <img className={style.slider__logo} src={logo} alt="onpoint"/>
             </div>
@@ -33,13 +39,14 @@ export const Slider = () => {
     )
 }
 
-type ContentSliderPropsType = {
+
+type ContentSliderPropsType =  {
     home: boolean
     setHome: (value: boolean) => void
+    height: string
 }
 
-
-const ContentSlider = ({home, setHome}: ContentSliderPropsType) => {
+const ContentSlider = ({home, setHome, height}: ContentSliderPropsType) => {
     const [count, setCount] = useState(0)
     const [down, setDown] = useState(false)
     const [startX, setStartX] = useState(0)
@@ -47,14 +54,14 @@ const ContentSlider = ({home, setHome}: ContentSliderPropsType) => {
 
     const sliderStylesContent = {
         width: '300%',
-        height: '768px',
+        height,
         marginLeft: `-${100 * count}%`,
         transition: animation,
         backgroundImage: `url(${backgroundSlider})`,
         backgroundSize: 'cover',
         display: 'flex',
+        alignItems: 'center',
         cursor: 'pointer',
-
     }
 
     useEffect(() => {
